@@ -3,7 +3,7 @@
 
 import PropTypes from 'prop-types';
 
-const Course = ({ course, handleToAddingCourse }) => {
+const Course = ({ course, handleToAddingCourse, handleCredit, handlePrice}) => {
     const { img, title, description, price, credit } = course
 
     return (
@@ -20,16 +20,22 @@ const Course = ({ course, handleToAddingCourse }) => {
                         <p className='flex-grow-0'>Credit: {credit}hr</p>
                     </div>
                     <div className="card-actions justify-center ">
-                        <button onClick={() => handleToAddingCourse(course)} className="btn btn-primary w-full">Select</button>
+
+                        <button onClick={() =>{
+                            handleToAddingCourse(course);
+                            handleCredit(credit);
+                            handlePrice(price);
+                        }}className="btn btn-primary w-full">Select</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
 Course.propTypes = {
-    FiBookOpen: PropTypes.func
+    FiBookOpen: PropTypes.func,
+    handleCredit: PropTypes.object
 
 };
 

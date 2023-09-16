@@ -10,12 +10,13 @@ const Bookmark = ({ bookmark }) => {
                     <li>{title}</li>
                 </h2>
             </div>
+            
         </div>
     );
 }
 
 Bookmark.propTypes = {
-    bookmark: PropTypes.func
+    bookmark: PropTypes.object
 };
 
 export default Bookmark;
