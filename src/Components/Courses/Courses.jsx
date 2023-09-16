@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Course from '../Course/Course';
 
-const Courses = () => {
+const Courses = ({ handleToAddingCourse }) => {
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         fetch('Courses.json')
@@ -13,11 +13,15 @@ const Courses = () => {
     }, [])
     return (
         <div className='w-3/4'>
-            
+
             <div className='md:grid grid-cols-3 gap-20 justify-center '>
 
                 {
-                    courses.map(course => <Course key={course.id} course={course}></Course>)
+                    courses.map(course => <Course
+                        key={course.id}
+                        course={course}
+                        handleToAddingCourse={handleToAddingCourse}
+                    ></Course>)
                 }
             </div>
         </div>
@@ -25,7 +29,7 @@ const Courses = () => {
 };
 
 Courses.propTypes = {
-
+    handleToAddingCourse: PropTypes.func
 };
 
 export default Courses;
